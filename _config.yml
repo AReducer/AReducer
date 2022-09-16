@@ -21,6 +21,9 @@ theme_config:
 sass:
   style: :compressed
 
+markdown: rdiscount
+pygments: true
+ 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
