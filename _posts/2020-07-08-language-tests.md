@@ -8,6 +8,37 @@ Note: I took this test post from [moving](https://github.com/huangyz0918/moving)
 
 ### 1. 日本語テスト
 
+```kotlin
+// WindowManager ermitteln
+windowManager =
+    applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager?
+
+// View-Layout Parameter fuer die Renderung vorbereiten
+val layoutParams =
+        WindowManager.LayoutParams(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN and WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                PixelFormat.TRANSLUCENT
+        )
+
+layoutParams.gravity = Gravity.TOP or Gravity.RIGHT
+layoutParams.x = 0
+layoutParams.y = 0
+
+// Layout laden und auspacken
+val inflater =
+        baseContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+viewOverlay = inflater.inflate(R.layout.overlay, null)
+
+// ...
+// Button-Handler usw.
+// ...
+
+// Rendern der View
+windowManager!!.addView(viewOverlay, layoutParams)
+```
 This is a Japanese test post to show you how japanese is displayed.
 
 私は昨日ついにその助力家というのの上よりするたなけれ。
