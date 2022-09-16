@@ -21,8 +21,10 @@ theme_config:
 sass:
   style: :compressed
 
-markdown: rdiscount
-pygments: true
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
  
 plugins:
   - jekyll-feed
